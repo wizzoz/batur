@@ -250,10 +250,12 @@
 
       var map = new mapboxgl.Map({
         container: 'map', // HTML container id
-        style: 'mapbox://styles/mapbox-map-design/ckhqrf2tz0dt119ny6azh975y', // style URL  mapbox://styles/oz25/ckqqr1b840cr817pehd85u479
+        style: 'mapbox://styles/oz25/ckqv37yw76w3718qscs3bwkpf', // style URL  mapbox://styles/oz25/ckqqr1b840cr817pehd85u479
         center: [115.40029451607954, -8.226147804259233], // starting position as [lng, lat]
         zoom: 11.3
       });
+
+
 
       map.on('load', function () {
       map.addSource('mapbox-dem', {
@@ -271,8 +273,8 @@
       'type': 'sky',
       'paint': {
       'sky-type': 'atmosphere',
-      'sky-atmosphere-sun': [0.0, 0.0],
-      'sky-atmosphere-sun-intensity': 15
+      'sky-atmosphere-sun': [1.0, 1.0],
+      'sky-atmosphere-sun-intensity': 45
       }
       });
         });
