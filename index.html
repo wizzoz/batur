@@ -1,0 +1,337 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Demo: How web apps work with Mapbox GL JS</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet">
+    <style>
+          img {max-width: 220px; height: auto;}
+      
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        
+        }
+    </style>
+  </head>
+  <body>
+    <div id="map" class="mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div>
+    <div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate">
+      <canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" role="region" width="1252" height="720" 
+      style="width: 626px; height: 360px;"></canvas>
+      <div aria-label="Map marker" class="mapboxgl-marker mapboxgl-marker-anchor-center" tabindex="0" 
+      style="transform: translate(-50%, -50%) translate(153px, -330px) rotateX(0deg) rotateZ(0deg);">
+        <svg display="block" height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero">
+          <g transform="translate(3.0, 29.0)" fill="#000000">
+            <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse>
+            <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse>
+            <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse>
+            <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse>
+            <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse>
+            <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse>
+            <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse>
+            <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse>
+          </g><g fill="#3FB1CE">
+            <path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path></g>
+          <g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path>
+          </g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)">
+            <circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle><circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle>
+          </g></g>
+        </svg></div><div aria-label="Map marker" class="mapboxgl-marker mapboxgl-marker-anchor-center" tabindex="0" style="transform: translate(-50%, -50%) translate(313px, 166px) rotateX(0deg) rotateZ(0deg);"><svg display="block" height="41px" width="27px" viewBox="0 0 27 41">
+          <g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000">
+            <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse>
+            <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse>
+            <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse>
+            <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse>
+            <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse>
+            <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse>
+            <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse>
+            <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse>
+          </g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path>
+          </g><g opacity="0.25" fill="#000000">
+            <path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path>
+          </g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g>
+          <g transform="translate(8.0, 8.0)"><circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle>
+            <circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle>
+          </g></g></svg></div><div aria-label="Map marker" class="mapboxgl-marker mapboxgl-marker-anchor-center" tabindex="0" style="transform: translate(-50%, -50%) translate(157px, -279px) rotateX(0deg) rotateZ(0deg);">
+            <svg display="block" height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000"><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse>
+              <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse>
+              <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse>
+              <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse>
+              <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse>
+              <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse>
+              <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse>
+              <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse>
+            </g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path>
+            </g><g opacity="0.25" fill="#000000">
+              <path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path>
+            </g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)">
+              <circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle>
+              <circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle>
+            </g></g></svg></div><div aria-label="Map marker" class="mapboxgl-marker mapboxgl-marker-anchor-center" tabindex="0" style="transform: translate(-50%, -50%) translate(-342px, -311px) rotateX(0deg) rotateZ(0deg);">
+              <svg display="block" height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero">
+                <g transform="translate(3.0, 29.0)" fill="#000000">
+                  <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse>
+                  <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse>
+                  <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse>
+                  <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse>
+                  <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse>
+                  <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse>
+                  <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse>
+                  <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse>
+                </g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path>
+                </g><g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path>
+                </g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)"><circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle><circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle></g></g></svg></div><div aria-label="Map marker" class="mapboxgl-marker mapboxgl-marker-anchor-center" tabindex="0" style="transform: translate(-50%, -50%) translate(-1029px, -242px) rotateX(0deg) rotateZ(0deg);"><svg display="block" height="41px" width="27px" viewBox="0 0 27 41">
+                  <g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000"><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse>
+                    <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse></g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path></g><g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path></g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g>
+                    <g transform="translate(8.0, 8.0)"><circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle>
+                      <circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle></g></g></svg></div><div aria-label="Map marker" class="mapboxgl-marker mapboxgl-marker-anchor-center" tabindex="0" style="transform: translate(-50%, -50%) translate(3.40282e+38px, 3.40282e+38px) rotateX(0deg) rotateZ(0deg);"><svg display="block" height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000">
+                        <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse>
+                        <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse>
+                        <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse>
+                        <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse>
+                        <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse>
+                        <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse>
+                        <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse>
+                        <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse>
+                      </g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path></g><g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path>
+                      </g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)"><circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle><circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle></g></g></svg></div><div aria-label="Map marker" class="mapboxgl-marker mapboxgl-marker-anchor-center" tabindex="0" style="transform: translate(-50%, -50%) translate(3.40282e+38px, 3.40282e+38px) rotateX(0deg) rotateZ(0deg);"><svg display="block" height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000"><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse>
+                        <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse>
+                        <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse>
+                        <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse>
+                        <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse>
+                        <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse>
+                        <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse>
+                        <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse>
+                      </g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path></g><g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path>
+                      </g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)">
+                        <circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle>
+                        <circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle></g></g></svg></div>
+                        <div aria-label="Map marker" class="mapboxgl-marker mapboxgl-marker-anchor-center" tabindex="0" style="transform: translate(-50%, -50%) translate(-1449px, -274px) rotateX(0deg) rotateZ(0deg);">
+                          <svg display="block" height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero">
+                            <g transform="translate(3.0, 29.0)" fill="#000000">
+                              <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse>
+                              <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse>
+                              <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse>
+                              <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse>
+                              <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse>
+                              <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse>
+                              <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse>
+                              <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse>
+                            </g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path>
+                            </g><g opacity="0.25" fill="#000000">
+                              <path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path></g>
+                            <g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)">
+                              <circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle>
+                              <circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle>
+           </g></g></svg></div></div>
+    
+          
+          <!--  ==<div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener nofollow" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div>
+          <div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib mapboxgl-compact">
+            <button class="mapboxgl-ctrl-attrib-button" type="button" title="Toggle attribution" aria-label="Toggle attribution"></button>
+            <div class="mapboxgl-ctrl-attrib-inner" role="list"><a href="https://www.mapbox.com/about/maps/" target="_blank" title="Mapbox" aria-label="Mapbox" role="listitem">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank" title="OpenStreetMap" aria-label="OpenStreetMap" role="listitem">© OpenStreetMap</a> <a href="https://www.mapbox.com/map-feedback/" target="_blank" title="Improve this map" aria-label="Improve this map" role="listitem">Improve this map</a></div></div></div></div>
+            <div class="mapboxgl-popup mapboxgl-popup-anchor-bottom" style="max-width: 240px; transform: translate(-50%, -100%) translate(313px, 142px);">
+             <div class="mapboxgl-popup-tip"></div>
+              <div class="mapboxgl-popup-content">
+                <h3>Burnham Park</h3>
+                <p>A lakefront park on Chicago's south side</p>
+                <button class="mapboxgl-popup-close-button" type="button" aria-label="Close popup">×</button> -->
+          <!--   </div></div></div>-->
+    
+    <!-- jQuery is required for this example. -->
+    <!--  <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script> -->
+    
+    <script>
+     mapboxgl.accessToken = 'pk.eyJ1Ijoib3oyNSIsImEiOiJjaWt3aTFtOGkwMGl0dnltMzluOWhmemJ4In0.Wrund5S_dJZANb8uEcUAWw';
+          
+      var locations = {
+        'features': [
+          {
+             'type': 'Feature',
+            'properties': {
+              'title': 'Kawah Batur',
+              'description':
+                'A northside park that is home to the Lincoln Park Zoo',
+              'images': "src='https://www.bit.ly/fcc-relaxing-cat'",
+               },
+            'geometry': {
+              'coordinates': [115.42324451607954, -8.236147824259233],
+              'type': 'Point'
+            }
+          },
+          {
+            'type': 'Feature',
+            'properties': {
+              'title': 'Burnham Park',
+              'description': "A lakefront park on Chicago's south side"
+            },
+            'geometry': {
+              'coordinates': [115.48029451507954, -8.276347804259233],
+              'type': 'Point'
+            }
+          },
+          {
+            'type': 'Feature',
+            'properties': {
+              'title': 'Grant Park',
+              'description':
+                "A downtown park that is the site of many of Chicago's favorite festivals and events"
+            },
+            'geometry': {
+              'coordinates': [115.41029456607954, -8.266143804259233],
+              'type': 'Point'
+            }
+          },
+          {
+            'type': 'Feature',
+            'properties': {
+              'title': 'Humboldt Park',
+              'description': "A large park on Chicago's northwest side"
+            },
+            'geometry': {
+              'coordinates': [115.44529751607954, -8.243547804259233],
+              'type': 'Point'
+            }
+          },
+          {
+            'type': 'Feature',
+            'properties': {
+              'title': 'Douglas Park',
+              'description':
+                "A large park near in Chicago's North Lawndale neighborhood"
+            },
+            'geometry': {
+              'coordinates': [115.44329461607954, -8.276347804259233],
+              'type': 'Point'
+            }
+          },
+          {
+            'type': 'Feature',
+            'properties': {
+              'title': 'Calumet Park',
+              'description':
+                'A park on the Illinois-Indiana border featuring a historic fieldhouse'
+            },
+            'geometry': {
+              'coordinates': [115.46529457607954, -8.276147804259233],
+              'type': 'Point'
+            }
+          },
+          {
+            'type': 'Feature',
+            'properties': {
+              'title': 'Jackson Park',
+              'description':
+                "A lakeside park that was the site of the 1893 World's Fair"
+            },
+            'geometry': {
+              'coordinates': [115.43329551607954, -8.298647804259233],
+              'type': 'Point'
+            }
+          },
+          {
+            'type': 'Feature',
+            'properties': {
+              'title': 'Columbus Park',
+              'description': "A large park in Chicago's Austin neighborhood"
+            },
+            'geometry': {
+              'coordinates': [115.46529452607954, -8.289447804259233],
+              'type': 'Point'
+            }
+          }
+        ],
+        'type': 'FeatureCollection'
+      };
+
+      var map = new mapboxgl.Map({
+        container: 'map', // HTML container id
+        style: 'mapbox://styles/mapbox-map-design/ckhqrf2tz0dt119ny6azh975y', // style URL  mapbox://styles/oz25/ckqqr1b840cr817pehd85u479
+        center: [115.40029451607954, -8.226147804259233], // starting position as [lng, lat]
+        zoom: 11.3
+      });
+
+      map.on('load', function () {
+      map.addSource('mapbox-dem', {
+      'type': 'raster-dem',
+      'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
+      'tileSize': 512,
+      'maxzoom': 14
+      });
+      // add the DEM source as a terrain layer with exaggerated height
+      map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
+  
+      /// add a sky layer that will show when the map is highly pitched
+      map.addLayer({
+      'id': 'sky',
+      'type': 'sky',
+      'paint': {
+      'sky-type': 'atmosphere',
+      'sky-atmosphere-sun': [0.0, 0.0],
+      'sky-atmosphere-sun-intensity': 15
+      }
+      });
+        });
+
+      locations.features.forEach((feature, i) => 
+      {
+        var popup = new mapboxgl.Popup().setHTML(
+          `<h3>${feature.properties.title} </h3>
+          <img ${feature.properties.images}> 
+          <p>${feature.properties.description}</p>`
+        );
+        var marker = new mapboxgl.Marker()
+          .setLngLat(feature.geometry.coordinates)
+          .setPopup(popup)
+          .addTo(map);
+
+        let parks = [];
+
+        marker.getElement().addEventListener('click', () => {
+          map.flyTo({
+            pitch: 45,
+            center: feature.geometry.coordinates,
+            zoom: 15.3
+          });
+     //     parks = map.queryRenderedFeatures(
+      //      map.project(feature.geometry.coordinates),
+      //      { layers: ['highlighted-park'] }
+      //    );
+      //    map.setFeatureState(
+       //     {
+       //       id: parks[0].id,
+       //       source: 'streets'
+       //     },
+       //     {
+       //       highlight: true
+      //      }
+      //    );
+        });
+
+        popup.on('close', () => {
+          map.flyTo({
+            pitch: 0,
+            center: [115.40029451607954, -8.226147804259233], //-8.226147804259233, 115.40029451607954   -87.622554, 41.852534
+            zoom: 11.3
+          });
+          map.setFeatureState(
+            {
+              id: parks[0].id,
+              source: 'streets'
+            },
+            {
+              highlight: false
+            }
+          );
+        });
+      });
+
+
+</script>
+  
+
+</body></html>
